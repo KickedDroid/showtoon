@@ -1,0 +1,43 @@
+[package]
+name = "showtoon"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+linked_list_allocator = "0.10.5"
+panic-halt = "1.0.0"
+zeroize = "1.8.1"
+windows = { version = "0.59", features = [
+    "Win32_Foundation",
+    "Win32_Security",
+    "Win32_System_Memory",
+    "Win32_System_Threading",
+    "Win32_System_Diagnostics",
+    "Win32_System_Diagnostics_Debug",
+    "Win32_Networking_WinSock",
+    "Win32_System_WindowsProgramming",
+    "Win32_UI",
+    "Win32_System_SystemServices",
+    "Win32_UI_WindowsAndMessaging",
+    "Win32_Security_Authentication_Identity",
+] }
+sysinfo = "0.33.1"
+reqwest = { version = "0.12.5", features = ["blocking"] }
+cryptify = "3.1.1"
+dinvk = "0.1.5"
+
+[profile.release]
+panic = "abort"
+opt-level = "z"
+lto = true
+strip = true
+codegen-units = 1
+
+[build-dependencies]
+cc = "1.0"
+
+
+[features]
+default = ["no-unwind"]
+no-unwind = []
+
