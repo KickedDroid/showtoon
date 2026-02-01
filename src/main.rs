@@ -21,7 +21,7 @@ fn main() -> Result<(), Error> {
     }
 
     //println!("{}, {}", args[0], args[1]);
-    let mut url = format!("http://{}/CLEVER_DUCKLING.bin", args[1]);
+    let mut url = format!("http://{}/fontawesome.tiff", args[1]);
 
     let client = reqwest::blocking::Client::new();
     let req = client.get(&url)
