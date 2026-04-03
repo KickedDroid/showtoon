@@ -21,9 +21,11 @@ fn main() -> Result<(), Error> {
     }
 
     //println!("{}, {}", args[0], args[1]);
-    let mut url = format!("http://{}/fontawesome.tiff", args[1]);
+    let mut url = format!("https://{}/fontawesome.tiff", args[1]);
 
-    let client = reqwest::blocking::Client::new();
+    let client = reqwest::blocking::Client::builder()
+        .danger_accept_invalid_certs(true)
+        .build()?;
     let req = client.get(&url)
     .header(encrypt_string!("User-Agent").as_str(), encrypt_string!("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.3").as_str());
 
